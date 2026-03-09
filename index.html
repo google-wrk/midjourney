@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mid Journey | 100% Fresh Food at Ballabhgarh Metro Station</title>
+<meta name="description" content="Mid Journey – 100% Fresh Burgers, Subs, Wraps & More at Ballabhgarh Metro Station, Haryana. Call 8010141821 to order now!">
+<meta name="keywords" content="food at Ballabhgarh Metro Station, Haryana food outlet, burgers Ballabhgarh, fast food Faridabad, Mid Journey burger, fresh food metro station">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#F5A623;--orange:#E8730A;--black:#0A0A0A;--dark:#111111;--card:#1A1A1A;--white:#FFFFFF;--gray:#CCCCCC;--green:#27AE60;--red:#E74C3C}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+/* FLOATING BUTTONS */
+.float-btns{position:fixed;bottom:20px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:12px}
+.float-btn{display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:50px;text-decoration:none;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;box-shadow:0 4px 20px rgba(0,0,0,0.4);transition:transform .2s,box-shadow .2s;white-space:nowrap;cursor:pointer;border:none}
+.float-btn:hover{transform:scale(1.07);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+.float-call{background:var(--gold);color:var(--black)}
+.float-order{background:var(--orange);color:var(--white)}
+.float-btn svg{width:18px;height:18px;flex-shrink:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,.97);border-bottom:2px solid var(--gold);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;backdrop-filter:blur(8px)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer}
+.nav-logo-badge{background:var(--gold);color:var(--black);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-family:'Bangers',cursive;font-size:20px;letter-spacing:1px}
+.nav-logo-text{font-family:'Bangers',cursive;font-size:26px;letter-spacing:2px;color:var(--gold)}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{color:var(--gray);text-decoration:none;font-weight:700;font-size:14px;padding:6px 14px;border-radius:6px;transition:all .2s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);background:rgba(245,166,35,.1)}
+.nav-order-btn{background:var(--gold);color:var(--black)!important;border-radius:8px!important;padding:8px 18px!important}
+.nav-order-btn:hover{background:var(--orange)!important;color:var(--white)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--gold);transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,10,10,.99);border-bottom:2px solid var(--gold);z-index:999;padding:16px;flex-direction:column;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:var(--gray);text-decoration:none;font-weight:700;font-size:16px;padding:12px 16px;border-radius:8px;cursor:pointer;transition:all .2s}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--gold);background:rgba(245,166,35,.1)}
+
+/* PAGES */
+.page{display:none;padding-top:64px}
+.page.active{display:block}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0A0A0A 0%,#1a1a2e 50%,#0A0A0A 100%);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:40px 20px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(245,166,35,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(232,115,10,.1) 0%,transparent 60%)}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);padding:6px 18px;border-radius:50px;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:24px;animation:fadeInDown .6s ease both}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.hero h1{font-family:'Bangers',cursive;font-size:clamp(60px,14vw,120px);line-height:.9;letter-spacing:4px;background:linear-gradient(135deg,#FFFFFF 0%,#F5A623 50%,#E8730A 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;animation:fadeInUp .7s .1s ease both}
+.hero-sub{font-size:clamp(16px,3vw,22px);color:var(--gray);font-weight:600;margin-bottom:10px;animation:fadeInUp .7s .2s ease both}
+.hero-location{display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-weight:800;font-size:15px;margin-bottom:36px;animation:fadeInUp .7s .3s ease both}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeInUp .7s .4s ease both}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--black);font-weight:900;font-size:16px;padding:14px 32px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(245,166,35,.35);font-family:'Nunito',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(245,166,35,.5)}
+.btn-secondary{background:transparent;color:var(--white);font-weight:900;font-size:16px;padding:14px 32px;border-radius:12px;text-decoration:none;border:2px solid rgba(255,255,255,.2);cursor:pointer;transition:all .2s;font-family:'Nunito',sans-serif;display:inline-flex;align-items:center;gap:8px}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.hero-stats{display:flex;justify-content:center;gap:clamp(20px,5vw,60px);margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,.08);animation:fadeIn 1s .6s ease both}
+.stat{text-align:center}
+.stat-num{font-family:'Bangers',cursive;font-size:40px;color:var(--gold);letter-spacing:2px}
+.stat-label{font-size:12px;color:var(--gray);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+/* SECTIONS */
+section{padding:80px 20px}
+.section-header{text-align:center;margin-bottom:48px}
+.section-tag{display:inline-block;background:rgba(245,166,35,.15);color:var(--gold);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;padding:4px 14px;border-radius:4px;margin-bottom:12px}
+.section-title{font-family:'Bangers',cursive;font-size:clamp(36px,7vw,60px);letter-spacing:3px;line-height:1;color:var(--white)}
+.section-title span{color:var(--gold)}
+.section-sub{color:var(--gray);font-size:16px;font-weight:600;margin-top:8px}
+.container{max-width:1100px;margin:0 auto}
+
+/* FEATURED CARDS */
+.featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.featured-card{background:var(--card);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.07);transition:transform .3s,box-shadow .3s;position:relative}
+.featured-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 0 1px rgba(245,166,35,.2)}
+.featured-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,#1a1a2e,#2d1b00);position:relative}
+.mvp-badge{position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#FFD700,#FFA500);color:var(--black);font-size:10px;font-weight:900;padding:3px 8px;border-radius:4px;text-transform:uppercase}
+.hot-badge{position:absolute;top:12px;left:12px;background:var(--red);color:white;font-size:10px;font-weight:900;padding:3px 8px;border-radius:4px;text-transform:uppercase}
+.featured-body{padding:20px}
+.featured-name{font-family:'Bangers',cursive;font-size:24px;letter-spacing:1px;margin-bottom:4px}
+.featured-desc{font-size:13px;color:var(--gray);font-weight:600;margin-bottom:14px}
+.price-row{display:flex;align-items:center;gap:12px}
+.price-tag{display:flex;flex-direction:column;align-items:center}
+.price-label{font-size:10px;color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:1px}
+.price-val{font-family:'Bangers',cursive;font-size:28px;color:var(--white)}
+.price-divider{width:1px;height:36px;background:rgba(255,255,255,.1)}
+.veg-dot{width:10px;height:10px;border-radius:50%;background:var(--green);border:1.5px solid #1f8049;display:inline-block;margin-right:6px}
+.nonveg-dot{width:10px;height:10px;border-radius:50%;background:var(--red);border:1.5px solid #a93226;display:inline-block;margin-right:6px}
+.type-indicator{font-size:12px;font-weight:700;color:var(--gray);display:flex;align-items:center;margin-bottom:4px}
+.stars{color:var(--gold);font-size:13px;margin-top:6px}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.why-card{background:var(--card);border-radius:16px;padding:28px 20px;text-align:center;border:1px solid rgba(255,255,255,.06);transition:border-color .3s}
+.why-card:hover{border-color:rgba(245,166,35,.3)}
+.why-icon{font-size:40px;margin-bottom:14px;display:block}
+.why-title{font-weight:900;font-size:17px;margin-bottom:6px}
+.why-desc{font-size:13px;color:var(--gray);line-height:1.6}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;position:relative}
+.testi-card::before{content:'"';position:absolute;top:-10px;left:20px;font-size:80px;font-family:'Bangers',cursive;color:var(--gold);opacity:.3;line-height:1}
+.testi-text{font-size:15px;line-height:1.7;color:#ddd;margin-bottom:16px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--orange));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:var(--black)}
+.testi-name{font-weight:800;font-size:15px}
+.testi-stars{color:var(--gold);font-size:12px}
+
+/* MENU PAGE */
+.menu-hero{background:linear-gradient(135deg,#0a0a0a,#1a1208);padding:60px 20px 40px;text-align:center;border-bottom:2px solid var(--gold)}
+.menu-hero h1{font-family:'Bangers',cursive;font-size:clamp(48px,10vw,80px);letter-spacing:4px;color:var(--gold)}
+.menu-hero p{color:var(--gray);font-weight:600;margin-top:8px}
+.menu-tabs{position:sticky;top:64px;z-index:100;background:rgba(10,10,10,.97);border-bottom:1px solid rgba(255,255,255,.08);padding:12px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;backdrop-filter:blur(8px)}
+.menu-tabs::-webkit-scrollbar{display:none}
+.menu-tab{flex-shrink:0;padding:8px 18px;border-radius:50px;font-weight:800;font-size:13px;cursor:pointer;transition:all .2s;border:1.5px solid rgba(255,255,255,.1);color:var(--gray);background:transparent;font-family:'Nunito',sans-serif;white-space:nowrap}
+.menu-tab.active,.menu-tab:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.menu-section{padding:40px 20px;border-bottom:1px solid rgba(255,255,255,.05)}
+.menu-section-title{display:flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.menu-section-icon{font-size:32px}
+.menu-section-name{font-family:'Bangers',cursive;font-size:36px;letter-spacing:2px;color:var(--gold)}
+.menu-section-count{font-size:13px;color:var(--gray);font-weight:700}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.menu-card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:all .25s;display:flex;flex-direction:column}
+.menu-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.5),0 0 0 1px rgba(245,166,35,.15)}
+.menu-card-img{height:130px;display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(135deg,#161616,#1f1f1f);position:relative;flex-shrink:0}
+.menu-card-body{padding:14px;flex:1;display:flex;flex-direction:column}
+.menu-card-name{font-weight:900;font-size:16px;margin-bottom:3px;line-height:1.2}
+.menu-card-sub{font-size:12px;color:var(--gray);margin-bottom:10px;flex:1}
+.menu-prices{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.price-box{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:4px 10px;text-align:center}
+.price-box-label{font-size:9px;color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.price-box-val{font-family:'Bangers',cursive;font-size:20px;color:var(--white)}
+.price-single{font-family:'Bangers',cursive;font-size:22px;color:var(--gold)}
+.before-price{font-size:13px;color:var(--gray);text-decoration:line-through;margin-right:6px}
+.now-price{font-family:'Bangers',cursive;font-size:22px;color:var(--gold)}
+.bev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.bev-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:14px;transition:all .2s}
+.bev-card:hover{border-color:rgba(245,166,35,.25);background:#1f1f1f}
+.bev-icon{font-size:28px;flex-shrink:0}
+.bev-name{font-weight:800;font-size:15px}
+.bev-price{font-family:'Bangers',cursive;font-size:20px;color:var(--gold);margin-left:auto;flex-shrink:0}
+.addon-banner{background:linear-gradient(135deg,rgba(245,166,35,.1),rgba(232,115,10,.1));border:1px solid rgba(245,166,35,.3);border-radius:16px;padding:24px 28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.addon-title{font-family:'Bangers',cursive;font-size:28px;color:var(--gold);letter-spacing:2px}
+.addon-items{display:flex;flex-wrap:wrap;gap:12px}
+.addon-item{background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.2);border-radius:8px;padding:6px 14px;font-weight:800;font-size:14px}
+.addon-item span{color:var(--gold)}
+.meal-banner{background:linear-gradient(135deg,#1a1208 0%,#0a0a0a 100%);border-top:3px solid var(--gold);padding:36px 20px;text-align:center}
+.meal-banner h3{font-family:'Bangers',cursive;font-size:36px;letter-spacing:2px;color:var(--white);margin-bottom:6px}
+.meal-old-price{font-size:20px;color:var(--gray);text-decoration:line-through}
+.meal-new-price{font-family:'Bangers',cursive;font-size:60px;color:var(--gold);line-height:1}
+.meal-badge-now{background:var(--red);color:white;font-size:12px;font-weight:900;padding:4px 12px;border-radius:4px;text-transform:uppercase;display:inline-block;margin-top:6px}
+.deal-highlight{display:inline-flex;align-items:center;gap:10px;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.2);border-radius:12px;padding:12px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--gold)}
+
+/* ABOUT */
+.about-hero{background:linear-gradient(135deg,#0a0a0a,#1a0a00);padding:80px 20px 60px;text-align:center}
+.about-content{max-width:900px;margin:0 auto;padding:60px 20px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:60px}
+.about-owner-card{background:var(--card);border-radius:24px;padding:36px;text-align:center;border:1px solid rgba(245,166,35,.15)}
+.owner-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--orange));display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 20px;box-shadow:0 0 0 4px rgba(245,166,35,.2)}
+.owner-name{font-family:'Bangers',cursive;font-size:32px;letter-spacing:2px;color:var(--gold)}
+.owner-title{color:var(--gray);font-weight:700;margin-bottom:16px}
+.owner-quote{font-size:15px;color:#ccc;font-style:italic;line-height:1.7}
+.about-text h2{font-family:'Bangers',cursive;font-size:38px;letter-spacing:2px;color:var(--gold);margin-bottom:16px}
+.about-text p{color:#ccc;line-height:1.8;font-size:16px;margin-bottom:14px}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:40px}
+.value-card{background:var(--card);border-radius:14px;padding:22px 18px;border-left:3px solid var(--gold)}
+.value-icon{font-size:28px;margin-bottom:8px}
+.value-title{font-weight:900;font-size:16px;margin-bottom:4px}
+.value-text{font-size:13px;color:var(--gray)}
+
+/* CONTACT */
+.contact-section{background:#0d0d0d;padding:80px 20px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:900px;margin:0 auto}
+.contact-info{display:flex;flex-direction:column;gap:20px}
+.contact-card{background:var(--card);border-radius:16px;padding:22px;border:1px solid rgba(255,255,255,.07);display:flex;align-items:flex-start;gap:16px;transition:border-color .2s}
+.contact-card:hover{border-color:rgba(245,166,35,.25)}
+.contact-icon{font-size:28px;flex-shrink:0}
+.contact-label{font-size:11px;color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.contact-val{font-weight:800;font-size:16px}
+.contact-val a{color:var(--white);text-decoration:none}
+.contact-val a:hover{color:var(--gold)}
+.contact-sub{font-size:13px;color:var(--gray)}
+.map-container{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+.hours-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:15px}
+.hours-day{font-weight:700;color:var(--gray)}
+.hours-open{color:var(--green);font-weight:800}
+
+/* FORM */
+.form-section{background:linear-gradient(135deg,#0a0a0a,#100a00);padding:80px 20px}
+.form-card{max-width:600px;margin:0 auto;background:var(--card);border-radius:24px;padding:40px;border:1px solid rgba(245,166,35,.15)}
+.form-group{margin-bottom:20px}
+.form-label{display:block;font-weight:800;font-size:14px;margin-bottom:8px;color:var(--gold)}
+.form-input,.form-select,.form-textarea{width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 16px;color:var(--white);font-family:'Nunito',sans-serif;font-size:15px;font-weight:600;transition:border-color .2s}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--gold);background:rgba(245,166,35,.05)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-select option{background:#1a1a1a}
+.form-submit{width:100%;background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--black);font-weight:900;font-size:17px;padding:15px;border-radius:12px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s;font-family:'Nunito',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,166,35,.4)}
+.success-msg{display:none;background:rgba(39,174,96,.1);border:1px solid var(--green);border-radius:10px;padding:14px 18px;color:var(--green);font-weight:700;text-align:center;margin-top:16px}
+
+/* SOCIAL */
+.social-section{background:var(--dark);padding:60px 20px;text-align:center}
+.social-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:28px}
+.social-btn{display:flex;align-items:center;gap:10px;padding:12px 24px;border-radius:50px;font-weight:800;font-size:15px;text-decoration:none;transition:transform .2s;cursor:pointer;border:none;font-family:'Nunito',sans-serif}
+.social-btn:hover{transform:translateY(-3px)}
+.social-insta{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:white}
+.social-fb{background:#1877F2;color:white}
+.social-wa{background:#25D366;color:white}
+.social-gg{background:#DB4437;color:white}
+
+/* ORDER PAGE */
+.qo-hero{background:linear-gradient(135deg,#0a0a0a 0%,#1a1208 50%,#0a0a0a 100%);padding:60px 20px 50px;text-align:center}
+.qo-hero h1{font-family:'Bangers',cursive;font-size:clamp(44px,9vw,72px);letter-spacing:4px;color:var(--gold)}
+.qo-hero p{color:var(--gray);font-weight:600;margin-top:10px;font-size:16px}
+.qo-main{max-width:700px;margin:0 auto;padding:50px 20px}
+.phone-card{background:linear-gradient(135deg,var(--card),#1f1a00);border:2px solid var(--gold);border-radius:24px;padding:44px 36px;text-align:center;margin-bottom:28px;box-shadow:0 0 40px rgba(245,166,35,.15)}
+.phone-card h2{font-family:'Bangers',cursive;font-size:28px;letter-spacing:2px;color:var(--gray);margin-bottom:16px}
+.phone-number{font-family:'Bangers',cursive;font-size:clamp(40px,8vw,64px);color:var(--gold);letter-spacing:4px;margin-bottom:24px;display:block;text-decoration:none;transition:color .2s}
+.phone-number:hover{color:var(--white)}
+.call-big-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--black);font-family:'Bangers',cursive;font-size:28px;letter-spacing:2px;padding:18px 44px;border-radius:16px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(245,166,35,.4)}
+.call-big-btn:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 40px rgba(245,166,35,.55)}
+.how-to-order{background:var(--card);border-radius:20px;padding:32px;border:1px solid rgba(255,255,255,.07)}
+.how-to-order h3{font-family:'Bangers',cursive;font-size:28px;letter-spacing:2px;color:var(--gold);margin-bottom:24px}
+.order-steps{display:flex;flex-direction:column;gap:16px}
+.order-step{display:flex;align-items:flex-start;gap:16px}
+.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--black);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-text{font-size:15px;color:#ccc;font-weight:600;line-height:1.6;padding-top:6px}
+
+/* FOOTER */
+footer{background:#050505;border-top:1px solid rgba(255,255,255,.06);padding:40px 20px 20px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:32px}
+.footer-logo{font-family:'Bangers',cursive;font-size:36px;color:var(--gold);letter-spacing:3px;display:block;margin-bottom:8px}
+.footer-tagline{font-size:13px;color:var(--gray);line-height:1.6;max-width:220px}
+.footer-heading{font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:14px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-links li a{color:var(--gray);text-decoration:none;font-size:14px;font-weight:600;transition:color .2s;cursor:pointer}
+.footer-links li a:hover{color:var(--gold)}
+.footer-contact-item{display:flex;gap:10px;margin-bottom:10px;font-size:14px;color:var(--gray)}
+.footer-contact-item span:first-child{color:var(--gold);flex-shrink:0}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--gray)}
+.footer-bottom a{color:var(--gold);text-decoration:none}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .float-btns{bottom:16px;right:12px;gap:8px}
+  .float-btn{padding:10px 14px;font-size:13px}
+  .form-card{padding:28px 20px}
+  .phone-card{padding:32px 20px}
+}
+@media(max-width:480px){
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .bev-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Buttons -->
+<div class="float-btns">
+  <a href="tel:8010141821" class="float-btn float-call">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    Call Now
+  </a>
+  <button onclick="showPage('order')" class="float-btn float-order">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2h-2V3a1 1 0 00-2 0v1H9V3a1 1 0 00-2 0v1zm0 2v1a1 1 0 002 0V6h4v1a1 1 0 002 0V6h2v14H5V6h2zM7 11h10v2H7zm0 4h7v2H7z"/></svg>
+    Quick Order
+  </button>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo-badge">MJ</div>
+    <span class="nav-logo-text">MID JOURNEY</span>
+  </div>
+  <div class="nav-links">
+    <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
+    <a onclick="showPage('menu')" id="nav-menu">Menu</a>
+    <a onclick="showPage('about')" id="nav-about">About Us</a>
+    <a onclick="showPage('contact')" id="nav-contact">Contact</a>
+    <a onclick="showPage('order')" class="nav-order-btn" id="nav-order">🛒 Order Now</a>
+  </div>
+  <div class="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');toggleMobile()">🏠 Home</a>
+  <a onclick="showPage('menu');toggleMobile()">🍔 Full Menu</a>
+  <a onclick="showPage('about');toggleMobile()">👤 About Us</a>
+  <a onclick="showPage('contact');toggleMobile()">📍 Contact</a>
+  <a onclick="showPage('order');toggleMobile()" style="color:var(--gold)">🛒 Order Now</a>
+</div>
+
+<!-- ===== HOME ===== -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span>100% FRESH FOOD · OPEN DAILY</div>
+      <h1>MID JOURNEY</h1>
+      <p class="hero-sub">Burgers · Subs · Wraps · Sides · Beverages</p>
+      <p class="hero-location">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Ballabhgarh Metro Station, Haryana
+      </p>
+      <div class="hero-ctas">
+        <button onclick="showPage('menu')" class="btn-primary">🍔 View Full Menu</button>
+        <a href="tel:8010141821" class="btn-secondary">📞 Call to Order</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">9+</div><div class="stat-label">Burger Varieties</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Fresh Ingredients</div></div>
+        <div class="stat"><div class="stat-num">₹49</div><div class="stat-label">Starting Price</div></div>
+        <div class="stat"><div class="stat-num">★★★★★</div><div class="stat-label">Rated</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Us -->
+  <section style="background:#0d0d0d">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">Fresh. Fast. <span>Flavourful.</span></h2>
+        <p class="section-sub">Right at the metro — grab a bite before your journey!</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal"><span class="why-icon">🥬</span><div class="why-title">100% Fresh</div><div class="why-desc">Every ingredient sourced fresh daily. No compromises on quality, ever.</div></div>
+        <div class="why-card reveal"><span class="why-icon">⚡</span><div class="why-title">Super Fast</div><div class="why-desc">In and out in minutes. Perfect for commuters on the go!</div></div>
+        <div class="why-card reveal"><span class="why-icon">💰</span><div class="why-title">Best Value</div><div class="why-desc">Burgers from ₹49. Combos from ₹79. Unbeatable prices!</div></div>
+        <div class="why-card reveal"><span class="why-icon">🚇</span><div class="why-title">Metro Convenient</div><div class="why-desc">Steps from Ballabhgarh Metro. Can't be more convenient!</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Customer Favourites</div>
+        <h2 class="section-title">Our <span>Star</span> Items</h2>
+        <p class="section-sub">Tried, loved, and ordered again by thousands!</p>
+      </div>
+      <div class="featured-grid">
+        <div class="featured-card reveal">
+          <div class="featured-img">🍔<span class="mvp-badge">⭐ MVP</span></div>
+          <div class="featured-body">
+            <div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div>
+            <div class="featured-name">MJ Veg Monster</div>
+            <div class="featured-desc">Double Patty · Our #1 Bestseller</div>
+            <div class="stars">★★★★★</div>
+            <div class="price-row" style="margin-top:12px">
+              <div class="price-tag"><div class="price-label">Single</div><div class="price-val">₹139</div></div>
+              <div class="price-divider"></div>
+              <div class="price-tag"><div class="price-label">Combo</div><div class="price-val">₹169</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-card reveal">
+          <div class="featured-img">🥔<span class="hot-badge">Most Sold</span></div>
+          <div class="featured-body">
+            <div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div>
+            <div class="featured-name">Aloo Tikki</div>
+            <div class="featured-desc">Most Sold Item · Classic Indian Taste</div>
+            <div class="stars">★★★★★</div>
+            <div class="price-row" style="margin-top:12px">
+              <div class="price-tag"><div class="price-label">Single</div><div class="price-val">₹49</div></div>
+              <div class="price-divider"></div>
+              <div class="price-tag"><div class="price-label">Combo</div><div class="price-val">₹79</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="featured-card reveal">
+          <div class="featured-img">🍗<span class="mvp-badge">⭐ MVP</span></div>
+          <div class="featured-body">
+            <div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div>
+            <div class="featured-name">MJ Chicken Monster</div>
+            <div class="featured-desc">Double Patty · King of Chicken Burgers</div>
+            <div class="stars">★★★★★</div>
+            <div class="price-row" style="margin-top:12px">
+              <div class="price-tag"><div class="price-label">Single</div><div class="price-val">₹149</div></div>
+              <div class="price-divider"></div>
+              <div class="price-tag"><div class="price-label">Combo</div><div class="price-val">₹179</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px"><button onclick="showPage('menu')" class="btn-primary">View Full Menu →</button></div>
+    </div>
+  </section>
+
+  <!-- Deal Banner -->
+  <div class="meal-banner reveal">
+    <h3>🎉 MID JOURNEY MEAL DEAL</h3>
+    <p style="color:var(--gray);margin-bottom:8px">Burger + Fries + Drink</p>
+    <div class="meal-old-price">Was ₹99</div>
+    <div class="meal-new-price">₹70</div>
+    <div><span class="meal-badge-now">ONLY NOW! + Add Cold Drink @ ₹30</span></div>
+    <div style="margin-top:24px"><a href="tel:8010141821" class="btn-primary">📞 Call to Grab This Deal</a></div>
+  </div>
+
+  <!-- Testimonials -->
+  <section style="background:linear-gradient(135deg,#111,#1a1208)">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Customer Reviews</div>
+        <h2 class="section-title">People <span>Love</span> Us</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <p class="testi-text">Best burgers near the metro! The MJ Veg Monster is absolutely incredible. I grab one every time I commute through Ballabhgarh.</p>
+          <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Rahul Sharma</div><div class="testi-stars">★★★★★</div></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <p class="testi-text">The Aloo Tikki is unmatched at this price. Combo meals are a steal. Vikas bhai has done something really special here!</p>
+          <div class="testi-author"><div class="testi-avatar">P</div><div><div class="testi-name">Priya Verma</div><div class="testi-stars">★★★★★</div></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <p class="testi-text">Fast service, fresh food, friendly staff. The Mexican Chicken is my go-to. Highly recommend to all metro commuters!</p>
+          <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Amit Gupta</div><div class="testi-stars">★★★★★</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <div class="social-section reveal">
+    <div class="section-tag">Follow Us</div>
+    <h2 class="section-title" style="margin-top:8px">Connect with <span>Mid Journey</span></h2>
+    <p style="color:var(--gray);margin-top:8px;font-weight:600">Stay updated with latest offers and new arrivals!</p>
+    <div class="social-links">
+      <button class="social-btn social-insta">📸 Instagram</button>
+      <button class="social-btn social-fb">👍 Facebook</button>
+      <a href="https://wa.me/918010141821" target="_blank" class="social-btn social-wa">💬 WhatsApp</a>
+      <button class="social-btn social-gg">⭐ Google Reviews</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <span class="footer-logo">MID JOURNEY</span>
+          <p class="footer-tagline">100% Fresh food at Ballabhgarh Metro Station. Your perfect pit-stop between journeys.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('menu')">Full Menu</a></li>
+            <li><a onclick="showPage('about')">About Us</a></li>
+            <li><a onclick="showPage('contact')">Contact</a></li>
+            <li><a onclick="showPage('order')">Order Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-contact-item"><span>📞</span><span><a href="tel:8010141821" style="color:inherit;text-decoration:none">8010141821</a></span></div>
+          <div class="footer-contact-item"><span>📍</span><span>Ballabhgarh Metro Station, Haryana</span></div>
+          <div class="footer-contact-item"><span>⏰</span><span>Open Daily — All Hours</span></div>
+        </div>
+        <div>
+          <div class="footer-heading">Menu Highlights</div>
+          <ul class="footer-links">
+            <li><a onclick="showPage('menu')">🍔 Burgers from ₹49</a></li>
+            <li><a onclick="showPage('menu')">🌯 Wraps from ₹99</a></li>
+            <li><a onclick="showPage('menu')">🥖 Subs from ₹119</a></li>
+            <li><a onclick="showPage('menu')">🍟 Fries from ₹79</a></li>
+            <li><a onclick="showPage('menu')">☕ Beverages from ₹39</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Mid Journey. Owned by <strong>Vikas Jha</strong>. All rights reserved.</span>
+        <span>📍 <a href="#">Ballabhgarh Metro Station, Haryana</a></span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== MENU ===== -->
+<div class="page" id="page-menu">
+  <div class="menu-hero">
+    <h1>🍔 OUR MENU</h1>
+    <p>100% Fresh · Made to Order · Ballabhgarh Metro Station, Haryana</p>
+  </div>
+  <div class="menu-tabs">
+    <button class="menu-tab active" onclick="scrollToSec('sec-burgers',this)">🍔 Burgers</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-subs',this)">🥖 Subs</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-wraps',this)">🌯 Wraps</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-fries',this)">🍟 Fries</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-shots',this)">🍗 MJ Shots</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-sides',this)">🧅 Sides</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-cold',this)">🥤 Cold Drinks</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-hot',this)">☕ Hot Drinks</button>
+    <button class="menu-tab" onclick="scrollToSec('sec-addons',this)">➕ Add-ons</button>
+  </div>
+  <div style="max-width:1100px;margin:0 auto">
+
+  <!-- BURGERS -->
+  <div class="menu-section" id="sec-burgers">
+    <div class="menu-section-title"><span class="menu-section-icon">🍔</span><span class="menu-section-name">OUR BURGERS</span><span class="menu-section-count">9 items</span></div>
+    <div class="menu-grid">
+      <div class="menu-card"><div class="menu-card-img">🍔<span style="position:absolute;top:8px;left:8px;background:var(--gold);color:var(--black);font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px">⭐ MVP</span></div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">MJ Veg Monster</div><div class="menu-card-sub">Double Patty · Our Champion Burger</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹139</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹169</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🍗<span style="position:absolute;top:8px;left:8px;background:var(--gold);color:var(--black);font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px">⭐ MVP</span></div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">MJ Chicken Monster</div><div class="menu-card-sub">Double Patty · King of Chicken</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹149</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹179</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🧀</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Cheese Burst</div><div class="menu-card-sub">Single Patty · Oozing with Cheese</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹119</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹139</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🌆</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Bombay Street</div><div class="menu-card-sub">Fresh Mumbai Feel · Street Spice</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹69</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹129</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🌶️</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Mexican Chicken</div><div class="menu-card-sub">Brought from the States · Bold & Spicy</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹99</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹129</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🍔</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Classic Veg</div><div class="menu-card-sub">Single Patty · Timeless Classic</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹99</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹129</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🐔</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Chicken Cheese</div><div class="menu-card-sub">Your Journey Buddy · Cheesy Goodness</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹119</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹139</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🧆</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Peppy Paneer</div><div class="menu-card-sub">For Protein Munchies · Spiced Paneer</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹119</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹139</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🥔<span style="position:absolute;top:8px;left:8px;background:var(--red);color:white;font-size:10px;font-weight:900;padding:2px 8px;border-radius:4px">Most Sold</span></div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Aloo Tikki</div><div class="menu-card-sub">Most Sold Item · Classic Desi Favourite</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹49</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹79</div></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- SUBS -->
+  <div class="menu-section" id="sec-subs">
+    <div class="menu-section-title"><span class="menu-section-icon">🥖</span><span class="menu-section-name">MJ SUBS</span><span class="menu-section-count">4 items</span></div>
+    <div class="deal-highlight">🎉 NOW JUST ₹139 (was ₹169) — Limited Time!</div>
+    <div class="menu-grid">
+      <div class="menu-card"><div class="menu-card-img">🥖</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Hara Bhara Sub</div><div class="menu-card-sub">Fresh & Green · Wholesome Goodness</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹119</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹139</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🥗</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Veg Sub</div><div class="menu-card-sub">Loaded with Veggies · Crisp & Fresh</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹139</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹169</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🍗</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Crispy Chicken Sub</div><div class="menu-card-sub">Juicy Chicken with Crispy Coating</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹139</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹159</div></div></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🌶️</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Spicy Chicken Sub</div><div class="menu-card-sub">Fiery & Bold · For the Brave Ones</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><div class="price-box"><div class="price-box-label">Single</div><div class="price-box-val">₹169</div></div><div class="price-box"><div class="price-box-label">Combo</div><div class="price-box-val">₹189</div></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- WRAPS -->
+  <div class="menu-section" id="sec-wraps">
+    <div class="menu-section-title"><span class="menu-section-icon">🌯</span><span class="menu-section-name">MJ WRAPS</span><span class="menu-section-count">6 items</span></div>
+    <div class="deal-highlight">🎉 NOW JUST ₹99 (was ₹129) — Limited Time!</div>
+    <div class="menu-grid">
+      <div class="menu-card"><div class="menu-card-img">🥬</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Veg Wrap</div><div class="menu-card-sub">Fresh Vegetables · Light & Delightful</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹99</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🧆</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Paneer Tikka Wrap</div><div class="menu-card-sub">Grilled Paneer Tikka · Smoky & Rich</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹109</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🌿</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Malai Chaap Wrap</div><div class="menu-card-sub">Creamy & Tender · So Satisfying</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹109</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🐔</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Chicken Cheese Wrap</div><div class="menu-card-sub">Cheesy Chicken Delight · Must Try</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹109</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🥚</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Egg Wrap</div><div class="menu-card-sub">Wholesome Egg Filling · Power Bite</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹99</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🍢</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Seekh Kebab Wrap</div><div class="menu-card-sub">Juicy Kebab · Street-Style Flavour</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹119</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- FRIES -->
+  <div class="menu-section" id="sec-fries">
+    <div class="menu-section-title"><span class="menu-section-icon">🍟</span><span class="menu-section-name">FRIES</span><span class="menu-section-count">5 varieties</span></div>
+    <div class="deal-highlight">🎉 Classic Fries NOW JUST ₹79 (was ₹99)!</div>
+    <div class="menu-grid">
+      <div class="menu-card"><div class="menu-card-img">🍟</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Classic Fries</div><div class="menu-card-sub">Golden & Crispy · Timeless Classic</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="before-price">₹99</span><span class="now-price">₹79</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🥓</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Loaded Fries</div><div class="menu-card-sub">Piled High with Toppings</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹99</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🧀</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Cheesy Fries</div><div class="menu-card-sub">Drizzled with Rich Cheese Sauce</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹99</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🌶️</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Peri-Peri Fries</div><div class="menu-card-sub">Fiery Peri-Peri Spice Blend</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹99</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🖤</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Charcoal Fries</div><div class="menu-card-sub">Activated Charcoal · Dramatic & Unique</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="price-single">₹99</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- MJ SHOTS -->
+  <div class="menu-section" id="sec-shots">
+    <div class="menu-section-title"><span class="menu-section-icon">🍗</span><span class="menu-section-name">MJ SHOTS</span><span class="menu-section-count">10 pieces each</span></div>
+    <div class="deal-highlight">🎉 NOW JUST ₹149 (was ₹179)!</div>
+    <div class="menu-grid">
+      <div class="menu-card"><div class="menu-card-img">🍗</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Chicken Fingers</div><div class="menu-card-sub">10 Pieces · Crispy & Juicy</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="before-price">₹179</span><span class="now-price">₹149</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🍿</div><div class="menu-card-body"><div class="type-indicator"><span class="nonveg-dot"></span>Non-Veg</div><div class="menu-card-name">Chicken Nuggets</div><div class="menu-card-sub">10 Pieces · Golden & Delicious</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="before-price">₹179</span><span class="now-price">₹149</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- OTHER SIDES -->
+  <div class="menu-section" id="sec-sides">
+    <div class="menu-section-title"><span class="menu-section-icon">🧅</span><span class="menu-section-name">OTHER SIDES</span></div>
+    <div class="menu-grid">
+      <div class="menu-card"><div class="menu-card-img">🧅</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Onion Rings</div><div class="menu-card-sub">Crispy Battered Onion Rings</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="before-price">₹109</span><span class="now-price">₹99</span></div></div></div>
+      <div class="menu-card"><div class="menu-card-img">🥗</div><div class="menu-card-body"><div class="type-indicator"><span class="veg-dot"></span>Pure Veg</div><div class="menu-card-name">Poha / Sprouts</div><div class="menu-card-sub">Healthy Food · Light & Nutritious 💚</div><div class="stars">★★★★★</div><div class="menu-prices" style="margin-top:10px"><span class="before-price">₹60</span><span class="now-price">₹50</span></div></div></div>
+    </div>
+  </div>
+
+  <!-- COLD BEVERAGES -->
+  <div class="menu-section" id="sec-cold">
+    <div class="menu-section-title"><span class="menu-section-icon">🥤</span><span class="menu-section-name">COLD BEVERAGES</span></div>
+    <div class="bev-grid">
+      <div class="bev-card"><span class="bev-icon">🥤</span><div><div class="bev-name">Coke / Sprite</div><div style="font-size:12px;color:var(--gray)">Chilled & Refreshing</div></div><span class="bev-price">₹39</span></div>
+      <div class="bev-card"><span class="bev-icon">☕</span><div><div class="bev-name">Cold Coffee</div><div style="font-size:12px;color:var(--gray)">Smooth & Creamy</div></div><span class="bev-price">₹99</span></div>
+      <div class="bev-card"><span class="bev-icon">🥛</span><div><div class="bev-name">Oreo / Chocolate Shake</div><div style="font-size:12px;color:var(--gray)">Thick & Indulgent</div></div><span class="bev-price">₹99</span></div>
+    </div>
+  </div>
+
+  <!-- HOT BEVERAGES -->
+  <div class="menu-section" id="sec-hot">
+    <div class="menu-section-title"><span class="menu-section-icon">☕</span><span class="menu-section-name">HOT BEVERAGES</span></div>
+    <div class="bev-grid">
+      <div class="bev-card"><span class="bev-icon">🍫</span><div><div class="bev-name">Hot Chocolate</div><div style="font-size:12px;color:var(--gray)">Rich & Velvety</div></div><span class="bev-price">₹99</span></div>
+      <div class="bev-card"><span class="bev-icon">☕</span><div><div class="bev-name">Cappuccino</div><div style="font-size:12px;color:var(--gray)">Frothy & Aromatic</div></div><span class="bev-price">₹59</span></div>
+      <div class="bev-card"><span class="bev-icon">☕</span><div><div class="bev-name">Mocha / Latte</div><div style="font-size:12px;color:var(--gray)">Smooth Espresso Blend</div></div><span class="bev-price">₹59</span></div>
+      <div class="bev-card"><span class="bev-icon">☕</span><div><div class="bev-name">Black Coffee</div><div style="font-size:12px;color:var(--gray)">Bold & Strong</div></div><span class="bev-price">₹49</span></div>
+      <div class="bev-card"><span class="bev-icon">🍵</span><div><div class="bev-name">Tea</div><div style="font-size:12px;color:var(--gray)">Classic Masala Chai</div></div><span class="bev-price">₹39</span></div>
+      <div class="bev-card"><span class="bev-icon">🍋</span><div><div class="bev-name">Lemon Ice Tea</div><div style="font-size:12px;color:var(--gray)">Refreshing & Tangy</div></div><span class="bev-price">₹39</span></div>
+    </div>
+  </div>
+
+  <!-- ADD-ONS -->
+  <div class="menu-section" id="sec-addons">
+    <div class="menu-section-title"><span class="menu-section-icon">➕</span><span class="menu-section-name">ADD-ONS</span><span class="menu-section-count">Customize your meal!</span></div>
+    <div class="addon-banner">
+      <div><div class="addon-title">🎯 CUSTOMIZE YOUR ORDER</div><div style="font-size:13px;color:var(--gray);margin-top:4px">Add to any burger, sub or wrap</div></div>
+      <div class="addon-items">
+        <div class="addon-item">Single Egg <span>₹20</span></div>
+        <div class="addon-item">Double Egg <span>₹30</span></div>
+        <div class="addon-item">Cheese Slice <span>₹20</span></div>
+        <div class="addon-item">Add Cold Drink <span>₹30</span></div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /container -->
+  <div class="meal-banner">
+    <h3>🎉 COMPLETE MID JOURNEY MEAL DEAL</h3>
+    <p style="color:var(--gray);margin-bottom:8px">Burger + Fries + Drink</p>
+    <div class="meal-old-price">Was ₹99</div>
+    <div class="meal-new-price">₹70</div>
+    <span class="meal-badge-now">🔥 LIMITED TIME</span>
+    <div style="margin-top:24px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="tel:8010141821" class="btn-primary">📞 Call: 8010141821</a>
+      <button onclick="showPage('order')" class="btn-secondary">🛒 Quick Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div class="section-tag">Our Story</div>
+    <h1 class="section-title" style="margin-top:10px">About <span>Mid Journey</span></h1>
+    <p style="color:var(--gray);font-weight:600;max-width:500px;margin:12px auto 0">Where fresh ingredients meet bold flavours at Ballabhgarh Metro Station.</p>
+  </div>
+  <div class="about-content">
+    <div class="about-grid">
+      <div class="about-owner-card">
+        <div class="owner-avatar">👨‍🍳</div>
+        <div class="owner-name">VIKAS JHA</div>
+        <div class="owner-title">Founder & Owner, Mid Journey</div>
+        <div class="owner-quote">"Every person who steps through our doors is on a journey. My mission is to make sure they fuel that journey with food that's 100% fresh, flavourful, and made with heart."</div>
+        <div style="margin-top:16px"><a href="tel:8010141821" style="display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-weight:800;text-decoration:none;font-size:14px">📞 8010141821</a></div>
+      </div>
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p>Mid Journey was born from a simple idea: commuters deserve more than just any food — they deserve <strong style="color:var(--gold)">great</strong> food. Located right at Ballabhgarh Metro Station, we're the perfect pit-stop for travellers, professionals, and students alike.</p>
+        <p>Founded by <strong style="color:var(--gold)">Vikas Jha</strong>, Mid Journey started as a passion project to bring big-city quality food to the metro commuters of Haryana. From Day One, the commitment has been unwavering: use only the freshest ingredients, never cut corners, and serve every customer with warmth and speed.</p>
+        <p>Today, Mid Journey is the go-to spot for burgers, subs, wraps, and beverages at Ballabhgarh — loved by thousands of daily commuters who keep coming back.</p>
+      </div>
+    </div>
+    <div class="section-header"><div class="section-tag">What We Stand For</div><h2 class="section-title">Our <span>Values</span></h2></div>
+    <div class="values-grid">
+      <div class="value-card"><div class="value-icon">🥬</div><div class="value-title">100% Fresh</div><div class="value-text">Sourced fresh daily. Prepared to order. Zero shortcuts.</div></div>
+      <div class="value-card"><div class="value-icon">⚡</div><div class="value-title">Lightning Fast</div><div class="value-text">We know you have trains to catch. Done in minutes.</div></div>
+      <div class="value-card"><div class="value-icon">❤️</div><div class="value-title">Made with Love</div><div class="value-text">Every item made with genuine care and passion.</div></div>
+      <div class="value-card"><div class="value-icon">💰</div><div class="value-title">Great Value</div><div class="value-text">Premium taste, pocket-friendly prices. From ₹49!</div></div>
+      <div class="value-card"><div class="value-icon">🌱</div><div class="value-title">Veg Friendly</div><div class="value-text">Extensive veg menu — every option as exciting as non-veg.</div></div>
+      <div class="value-card"><div class="value-icon">🤝</div><div class="value-title">Community</div><div class="value-text">We are part of Ballabhgarh. Your satisfaction is our pride.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <button onclick="showPage('menu')" class="btn-primary" style="margin-right:14px">🍔 View Our Menu</button>
+      <button onclick="showPage('contact')" class="btn-secondary">📍 Find Us</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CONTACT ===== -->
+<div class="page" id="page-contact">
+  <div class="about-hero">
+    <div class="section-tag">Get in Touch</div>
+    <h1 class="section-title" style="margin-top:10px">Contact &amp; <span>Location</span></h1>
+    <p style="color:var(--gray);font-weight:600;max-width:500px;margin:12px auto 0">Find us at Ballabhgarh Metro Station — right where your journey begins!</p>
+  </div>
+  <div class="contact-section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-card"><span class="contact-icon">📍</span><div><div class="contact-label">Location</div><div class="contact-val">Ballabhgarh Metro Station</div><div class="contact-sub">Ballabhgarh, Haryana, India</div></div></div>
+        <div class="contact-card"><span class="contact-icon">📞</span><div><div class="contact-label">Phone / Order</div><div class="contact-val"><a href="tel:8010141821">8010141821</a></div><div class="contact-sub">Call or WhatsApp to order!</div></div></div>
+        <div class="contact-card"><span class="contact-icon">👤</span><div><div class="contact-label">Owner</div><div class="contact-val">Vikas Jha</div><div class="contact-sub">Available for bulk orders & partnerships</div></div></div>
+        <div class="contact-card"><span class="contact-icon">⏰</span><div><div class="contact-label">Hours</div><div><div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-open">Open All Day</span></div><div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-open">Open All Day</span></div><div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-open">Open All Day</span></div></div></div></div>
+      </div>
+      <div>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.9!2d77.326!3d28.341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc567b6c9c0b%3A0x9a7e6bb2e2c8dcf3!2sBallabhgarh+Metro+Station!5e0!3m2!1sen!2sin!4v1720000000000" width="100%" height="350" style="border:0;display:block" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://maps.google.com/?q=Ballabhgarh+Metro+Station" target="_blank" class="btn-primary" style="flex:1;justify-content:center;min-width:140px">🗺️ Open in Maps</a>
+          <a href="https://wa.me/918010141821" target="_blank" class="btn-secondary" style="flex:1;justify-content:center;min-width:140px">💬 WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-section">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="section-tag">Send Us a Message</div>
+      <h2 class="section-title" style="margin-top:8px">Quick <span>Inquiry</span></h2>
+      <p style="color:var(--gray);margin-top:8px;font-weight:600">Bulk orders, reservations, partnerships — reach out below!</p>
+    </div>
+    <div class="form-card">
+      <div class="form-group"><label class="form-label">Your Name *</label><input type="text" class="form-input" placeholder="e.g. Rahul Sharma" id="f-name"></div>
+      <div class="form-group"><label class="form-label">Phone Number *</label><input type="tel" class="form-input" placeholder="e.g. 9876543210" id="f-phone"></div>
+      <div class="form-group"><label class="form-label">Enquiry Type</label><select class="form-select" id="f-type"><option value="">Select type...</option><option>Bulk Order</option><option>Reservation</option><option>Feedback</option><option>Partnership</option><option>Other</option></select></div>
+      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Tell us more about your requirement..." id="f-msg"></textarea></div>
+      <button class="form-submit" onclick="submitForm()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        Send Enquiry
+      </button>
+      <div class="success-msg" id="successMsg">✅ Thank you! We'll get back to you shortly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ORDER ===== -->
+<div class="page" id="page-order">
+  <div class="qo-hero">
+    <div class="section-tag">Quick Order</div>
+    <h1>ORDER NOW 🛒</h1>
+    <p>Fastest way to get your favourite Mid Journey food — just give us a call!</p>
+  </div>
+  <div class="qo-main">
+    <div class="phone-card">
+      <h2>📞 CALL TO ORDER INSTANTLY</h2>
+      <a href="tel:8010141821" class="phone-number">8010141821</a>
+      <div><a href="tel:8010141821" class="call-big-btn">📞 CALL NOW</a></div>
+      <p style="color:var(--gray);margin-top:18px;font-size:14px;font-weight:600">Vikas Jha · Ballabhgarh Metro Station, Haryana</p>
+    </div>
+    <div style="display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap">
+      <a href="https://wa.me/918010141821" target="_blank" class="btn-primary" style="flex:1;justify-content:center;padding:14px">💬 WhatsApp Order</a>
+      <button onclick="showPage('menu')" class="btn-secondary" style="flex:1;justify-content:center;padding:14px">🍔 Browse Menu First</button>
+    </div>
+    <div class="how-to-order">
+      <h3>HOW TO ORDER</h3>
+      <div class="order-steps">
+        <div class="order-step"><div class="step-num">1</div><div class="step-text"><strong>Browse the menu</strong> — Check all our burgers, subs, wraps, sides and drinks on the Menu page.</div></div>
+        <div class="order-step"><div class="step-num">2</div><div class="step-text"><strong>Call 8010141821</strong> — Tell us what you'd like and we'll have it ready in minutes.</div></div>
+        <div class="order-step"><div class="step-num">3</div><div class="step-text"><strong>Pick up at Ballabhgarh Metro Station</strong> — Right at the metro. Quick, fresh, and hassle-free.</div></div>
+        <div class="order-step"><div class="step-num">4</div><div class="step-text"><strong>Enjoy your meal!</strong> — Fresh, hot, exactly what you ordered. Fuel your journey!</div></div>
+      </div>
+    </div>
+    <div style="background:var(--card);border-radius:20px;padding:28px;margin-top:24px;border:1px solid rgba(245,166,35,.1)">
+      <h3 style="font-family:'Bangers',cursive;font-size:24px;letter-spacing:2px;color:var(--gold);margin-bottom:16px">🔥 TODAY'S BEST DEALS</h3>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.04);border-radius:10px"><span style="font-weight:700">🍔 Aloo Tikki (Most Sold)</span><span style="font-family:'Bangers',cursive;font-size:20px;color:var(--gold)">₹49</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.04);border-radius:10px"><span style="font-weight:700">🍔 MJ Veg Monster (MVP)</span><span style="font-family:'Bangers',cursive;font-size:20px;color:var(--gold)">₹139</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.04);border-radius:10px"><span style="font-weight:700">🎉 Complete MJ Meal Deal</span><span><span style="text-decoration:line-through;color:var(--gray);font-size:14px;margin-right:6px">₹99</span><span style="font-family:'Bangers',cursive;font-size:20px;color:var(--gold)">₹70</span></span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.04);border-radius:10px"><span style="font-weight:700">🌯 Wraps Starting At</span><span><span style="text-decoration:line-through;color:var(--gray);font-size:14px;margin-right:6px">₹129</span><span style="font-family:'Bangers',cursive;font-size:20px;color:var(--gold)">₹99</span></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const el=document.getElementById('nav-'+name);
+  if(el)el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(initReveal,100);
+}
+function toggleMobile(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function scrollToSec(id,tabEl){
+  const el=document.getElementById(id);
+  if(el){
+    const y=el.getBoundingClientRect().top+window.scrollY-130;
+    window.scrollTo({top:y,behavior:'smooth'});
+  }
+  document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+  tabEl.classList.add('active');
+}
+function submitForm(){
+  const name=document.getElementById('f-name').value;
+  const phone=document.getElementById('f-phone').value;
+  if(!name||!phone){alert('Please fill in your name and phone number.');return;}
+  document.getElementById('successMsg').style.display='block';
+  document.getElementById('f-name').value='';
+  document.getElementById('f-phone').value='';
+  document.getElementById('f-msg').value='';
+}
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+  },{threshold:0.1});
+  document.querySelectorAll('.page.active .reveal').forEach(el=>{
+    el.classList.remove('visible');
+    obs.observe(el);
+  });
+}
+document.addEventListener('DOMContentLoaded',initReveal);
+</script>
+</body>
+</html>
